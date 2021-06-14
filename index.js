@@ -159,9 +159,16 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore, inning, numbOfInnings) {
+  const arrayOfScores[];
+  let homeScore = 0;
+  let AwayScore = 0;
+  for (let i = 0; i < numbOfInnings; i++){
+    inning += 1;
+    arrayOfScores.push(`Inning ${inning}: Away ${getInningScore.Away} - Home ${getInningScore.Home}`);
+  }
 }
+console.log('task 5', scoreboard(getInningScore, inning, 9));
 
 
 
