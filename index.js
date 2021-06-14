@@ -25,15 +25,21 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 
 /*Task 1: counterMaker()
   
-  Study the code for counter1 and counter2, then answer the questions below.
+    Study the code for counter1 and counter2, then answer the questions below.
+    
+    1. What is the difference between counter1 and counter2?
+    
+    one has closure and resets the count to zero the other has no closure and contiuously updates the variable "count."
+    
+    
+    2. Which of the two uses a closure? How can you tell?
+    
+    The first one has a child function inside a parent. The child reachout out into the parent scope for the variable access. 
+    
+    3. In what scenario would the counter1 code be preferable? In what scenario wouldcounter2 be better?
+    Counter one is best when reseting the variable to zero is desired. Counter two is best when a growning count or updating the variable after each use is desired. 
   
-  1. What is the difference between counter1 and counter2?
-  
-  2. Which of the two uses a closure? How can you tell?
-  
-  3. In what scenario would the counter1 code be preferable? In what scenario would 
-     counter2 be better?  
-*/
+  */
 
 // counter1 code
 function counterMaker() {
@@ -62,9 +68,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor((Math.random() * 2) + 1);
 }
+console.log(`task 2:`, inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
