@@ -88,9 +88,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningcb, numbOfInnings){
+  const totalScore = {
+    Home: 0,
+    Away: 0
+    };
+  for (let i = 0; i < numbOfInnings; i++){
+    totalScore.Home += inningcb();
+    totalScore.Away += inningcb();
+  }
+  return totalScore;
 }
+console.log('task 3', finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
