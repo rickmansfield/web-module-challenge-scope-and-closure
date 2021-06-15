@@ -3,9 +3,9 @@
 /**Example Task : processFirstItem()*/
 
 function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+  return callback(stringList[0]);
 }
-console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
+
 
 // ⭐️ Example Challenge END ⭐️
 
@@ -19,8 +19,8 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 // counter1 code
 function counterMaker() {
   let count = 0;
-  return function counter() {
-   return count++;
+  return function counter(){
+   return count ++;
   }
 }
 
