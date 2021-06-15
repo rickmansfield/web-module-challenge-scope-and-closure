@@ -1,17 +1,6 @@
 // ⭐️ Example Challenge START ⭐️
 
-/**Example Task : processFirstItem()
- * This example shows how you might go about solving the rest of the tasks
- * 
- * Use the higher order function processFirstItem below to do the following:
- *  1. Receive an array of strings in a parameter
- *  2. Receive a callback function that takes a string as its argument in a parameter
- *  3. Return the result of invoking the callback function and passing in the FIRST 
- *     element in the array as the argument
- * 
- * The following code is demonstrating a way of completing this task
- * It returns the string `foofoo`
-*/
+/**Example Task : processFirstItem()*/
 
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
@@ -24,20 +13,6 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 ///// M V P ///////
 
 /*Task 1: counterMaker()
-  
-    Study the code for counter1 and counter2, then answer the questions below.
-    
-    1. What is the difference between counter1 and counter2?
-    
-    one has closure and resets the count to zero the other has no closure and contiuously updates the variable "count."
-    
-    
-    2. Which of the two uses a closure? How can you tell?
-    
-    The first one has a child function inside a parent. The child reachout out into the parent scope for the variable access. 
-    
-    3. In what scenario would the counter1 code be preferable? In what scenario wouldcounter2 be better?
-    Counter one is best when reseting the variable to zero is desired. Counter two is best when a growning count or updating the variable after each use is desired. 
   
   */
 
@@ -59,34 +34,14 @@ function counter2() {
 }
 
 
-/* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
-Use the inning function below to do the following:
-  1. Return a random whole number of points between 0 and 2 scored by one team in an inning
-  
-  For example: invoking inning() should return a numerical score value of 0, 1, or 2
-  
-NOTE: This will be a callback function for the tasks below
-*/
+/* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️*/
 
 function inning(){
   return Math.floor((Math.random() * 2) + 1);
 }
 console.log(`task 2:`, inning());
 
-
-/* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
-Use the finalScore function below to do the following:
-  1. Receive the callback function `inning` that was created in Task 2 
-  2. Receive a number of innings to be played
-  3. After each inning, update the score of the home and away teams
-  4. After the last inning, return an object containing the final (total) score of the innings played
-  
-  For example: invoking finalScore(inning, 9) might return this object:
-{
-  "Home": 11,
-  "Away": 5
-}
-*/ 
+/* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️*/ 
 
 function finalScore(inningcb, numbOfInnings){
   const totalScore = {
@@ -101,21 +56,19 @@ function finalScore(inningcb, numbOfInnings){
 }
 console.log('task 3', finalScore(inning, 9));
 
-/* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
-Use the getInningScore() function below to do the following:
-  1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
-  2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
+/* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️ */
 
   function getInningScore(inningcb) {
     const inningScore = {
       Home: 0, 
       Away: 0
-    }
+    };
     inningScore.Home = inningcb();
     inningScore.Away = inningcb();
     return inningScore;
+    // return {"Home": inningcb(), "Away": inningcb()};
   }
-  console.log('Task 4', getInningScore);
+  console.log('Task 4', getInningScore(inning));
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -159,14 +112,19 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore, inning, numbOfInnings) {
-  const arrayOfScores[];
-  let homeScore = 0;
-  let AwayScore = 0;
+function scoreboard(getInningScorecb, inningcb, numbOfInnings) {
+  let arrayOfScores = [];
   for (let i = 0; i < numbOfInnings; i++){
-    inning += 1;
-    arrayOfScores.push(`Inning ${inning}: Away ${getInningScore.Away} - Home ${getInningScore.Home}`);
+    arrayOfScores.push(`Inning ${numbOfInnings[i]}: Away ${inningcb().Away} - Home ${inningcb().Home}`);
+
+  } 
+  if (getInningScore.Away === getInningScore.Home){
+    arrayOfScores.push(`This game will require extra innings Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
+  } else {
+    arrayOfScores.push(`Final score: Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
   }
+
+  return arrayOfScores;
 }
 console.log('task 5', scoreboard(getInningScore, inning, 9));
 
