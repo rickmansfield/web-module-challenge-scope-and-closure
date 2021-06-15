@@ -114,15 +114,15 @@ Use the scoreboard function below to do the following:
 
 function scoreboard(getInningScorecb, inningcb, numbOfInnings) {
   let arrayOfScores = [];
-  for (let i = 0; i < numbOfInnings; i++){
-    arrayOfScores.push(`Inning ${numbOfInnings[i]}: Away ${inningcb().Away} - Home ${inningcb().Home}`);
+  for (let i = 0; i <= numbOfInnings; i++){
+    arrayOfScores.push(`Inning ${[i]}: Away ${inningcb()} - Home ${inningcb()}`);
 
   } 
-  if (getInningScore.Away === getInningScore.Home){
-    arrayOfScores.push(`This game will require extra innings Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
-  } else {
-    arrayOfScores.push(`Final score: Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
-  }
+  // if (getInningScore.Away === getInningScore.Home){
+  //   arrayOfScores.push(`This game will require extra innings Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
+  // } else {
+  //   arrayOfScores.push(`Final score: Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
+  // }
 
   return arrayOfScores;
 }
