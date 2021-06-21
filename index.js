@@ -40,6 +40,10 @@ function inning(){
   return Math.floor((Math.random() * 2) + 1);
 }
 console.log(`task 2:`, inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️*/ 
 
@@ -63,12 +67,12 @@ console.log('task 3', finalScore(inning, 9));
       Home: 0, 
       Away: 0
     };
-    inningScore.Home = inningcb();
-    inningScore.Away = inningcb();
+    inningScore.Home = inningcb;
+    inningScore.Away = inningcb;
     return inningScore;
     // return {"Home": inningcb(), "Away": inningcb()};
   }
-  console.log('Task 4', getInningScore(inning));
+  console.log('Task 4', getInningScore(inning()));
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -111,23 +115,45 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-
-function scoreboard(getInningScorecb, inningcb, numbOfInnings) {
-  let arrayOfScores = [];
+// ====================================================================
+//Task 5 first attempt
+function scoreboard(finalScorecb, inningcb, numbOfInnings) {
+  const arrayOfScores = [];
   for (let i = 0; i <= numbOfInnings; i++){
-    arrayOfScores.push(`Inning ${[i]}: Away ${inningcb()} - Home ${inningcb()}`);
+    arrayOfScores.push(`Inning ${[i+1]}: Away ${inningcb()} - Home ${inningcb()}`);
 
   } 
-  // if (getInningScore.Away === getInningScore.Home){
-  //   arrayOfScores.push(`This game will require extra innings Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
-  // } else {
-  //   arrayOfScores.push(`Final score: Away: ${getInningScorecb().Away} - Home ${getInningScorecb().Home}`);
-  // }
+  if (finalScorecb.Away === finalScorecb.Home){
+    arrayOfScores.push(`This game will require extra innings: Away ${finalScorecb().Away} - Home ${finalScorecb().Home}`);
+  } else {
+    arrayOfScores.push(`Final score: Away: ${finalScorecb().Away} - Home ${finalScorecb().Home}`);
+  }
 
   return arrayOfScores;
 }
-console.log('task 5', scoreboard(getInningScore, inning, 9));
+console.log('task 5', scoreboard(finalScore(), inning, 9));
+// ==================================================================
 
+//Task 5 second attempt
+// function scoreboard(getInningScoreCB, inningCB, numbOfInnings){
+//   const scoreByInning = [];
+//   let homeScore = 0;
+//   let awayScore = 0;
+  
+//   for (let i = 0; i<numbOfInnings; i++){
+//     const currentInning = getInningScoreCB(inningCB);
+//     homeScore = homeScore + currentInning.Home;
+//     awayScore = awayScore + currentInning.away;
+//     scoreByInning.push(`Inning ${i+1}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+//   }
+//   if (homeScore === awayScore){
+//     scoreByInning.push(`This game will require extra innings: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+//   } else {
+//     scoreByInning.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+//   }
+//    return scoreByInning; 
+//   }
+// console.log(`Task 5`, scoreboard(getInningScore, inning, 9));
 
 
 
